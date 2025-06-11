@@ -2,19 +2,20 @@ import { useState } from "react";
 
 export default function Todo() {
   const [tasks, setTasks] = useState([
+    // to store the new tasks in a array
     "Wake up at 6am",
     "Go to job",
     "Learn React",
   ]);
-  const [newTask, setNewTask] = useState("");
-
-  const [complete, isCompleted] = useState(false);
+  const [newTask, setNewTask] = useState(""); // to write the new task and store it into the array
 
   function handleInput(event: any) {
+    // to get the value of input field
     setNewTask(event.target.value);
   }
 
   function addTask() {
+    // function to store the new written task into the existing array of tasks
     if (newTask.trim() !== "") {
       setTasks((t) => [...t, newTask]);
       setNewTask("");
@@ -22,6 +23,7 @@ export default function Todo() {
   }
 
   function deleteTask(index: any) {
+    // to delete the tasks
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   }
